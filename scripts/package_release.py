@@ -39,6 +39,13 @@ def package(binary, version, target, notices, output):
     inventory_path = notices.parent / "dependency-inventory.json"
     inventory = json.loads(inventory_path.read_text())
     files["dependency-inventory.json"] = inventory_path.read_bytes()
+    runtime = notices.parent / "rust-runtime-notices"
+    if not (runtime / "COPYRIGHT-library.html").is_file():
+        raise ValueError("Rust runtime copyright/license materials are required")
+    for path in sorted(runtime.iterdir()):
+        if path.is_symlink() or not path.is_file():
+            raise ValueError("Runtime notices must be regular files")
+        files["rust-runtime-notices/" + path.name] = path.read_bytes()
     for dependency in inventory:
         if dependency.get("license") == "MPL-2.0":
             name = dependency["name"] + "-" + dependency["version"] + ".crate"
@@ -74,13 +81,22 @@ def package(binary, version, target, notices, output):
     return dest
 
 
-def sign(directory, private_key):
+def sign(directory, private_key, candidate=False):
     assets = sorted(directory.glob("znas-*.tar.gz"))
-    if len(assets) != 3:
+    if not assets or (not candidate and len(assets) != 3):
         raise ValueError("All three platform archives are required before signing")
     expected = {f"znas-{p}.tar.gz" for p in ("linux-x86_64", "linux-aarch64", "macos-aarch64")}
-    if {p.name for p in assets} != expected:
+    if not {p.name for p in assets}.issubset(expected):
         raise ValueError("Unexpected release asset names")
+    versions = set()
+    for archive in assets:
+        with tarfile.open(archive) as content:
+            manifest = json.load(content.extractfile("manifest.json"))
+        if archive.name != f"znas-{manifest['platform']}.tar.gz":
+            raise ValueError("Archive platform and manifest disagree")
+        versions.add(manifest["version"])
+    if len(versions) != 1:
+        raise ValueError("All platform archives must contain the same version")
     public = subprocess.check_output(["openssl", "pkey", "-in", str(private_key), "-pubout"])
     if public.strip() != (ROOT / "release-signing-public.pem").read_bytes().strip():
         raise ValueError("Signing key does not match pinned public key")
@@ -102,8 +118,9 @@ if __name__ == "__main__":
     signing = sub.add_parser("sign")
     signing.add_argument("--directory", type=Path, required=True)
     signing.add_argument("--private-key", type=Path, required=True)
+    signing.add_argument("--candidate", action="store_true", help="Allow an incomplete platform set for draft-only native testing; not a complete release")
     args = parser.parse_args()
     if args.command == "package":
         print(package(args.binary, args.version, args.platform, args.notices, args.output))
     else:
-        sign(args.directory, args.private_key)
+        sign(args.directory, args.private_key, args.candidate)

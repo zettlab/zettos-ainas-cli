@@ -4,7 +4,7 @@
 
 | 客户端平台 | 计划附件 | 当前状态 |
 |---|---|---|
-| Linux x86_64 | `znas-linux-x86_64.tar.gz` | 本机安装器测试通过；正式程序包和最低 glibc 待验证 |
+| Linux x86_64 | `znas-linux-x86_64.tar.gz` | 签名候选包本机验证通过；glibc 符号要求 2.34，最低系统实测待完成 |
 | Linux ARM64 | `znas-linux-aarch64.tar.gz` | 交叉构建成功；目标设备运行待验证 |
 | macOS Apple Silicon | `znas-macos-aarch64.tar.gz` | 构建、最低系统版本、签名和运行待验证 |
 | Windows / Intel Mac | 无 | 暂不支持，不承诺 WSL 或 Rosetta 兼容性 |

@@ -1,0 +1,41 @@
+name: Verify signed release binaries
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Existing draft or published release tag to verify
+        required: true
+        type: string
+      linux_only:
+        description: Verify a draft containing only Linux candidates (not full release acceptance)
+        required: false
+        default: false
+        type: boolean
+permissions:
+  contents: read
+jobs:
+  native:
+    strategy:
+      fail-fast: false
+      matrix:
+        include: ${{ fromJSON(inputs.linux_only && '[{"os":"ubuntu-24.04","platform":"linux-x86_64"},{"os":"ubuntu-24.04-arm","platform":"linux-aarch64"}]' || '[{"os":"ubuntu-24.04","platform":"linux-x86_64"},{"os":"ubuntu-24.04-arm","platform":"linux-aarch64"},{"os":"macos-14","platform":"macos-aarch64"}]') }}
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Download candidate without exposing private implementation
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_VERSION: ${{ inputs.version }}
+          RELEASE_PLATFORM: ${{ matrix.platform }}
+        run: |
+          gh release download "$RELEASE_VERSION" --repo "$GITHUB_REPOSITORY" --dir candidate \
+            --pattern "znas-${RELEASE_PLATFORM}.tar.gz" --pattern SHA256SUMS --pattern SHA256SUMS.sig
+      - name: Verify and execute native binary in isolated installation
+        env:
+          RELEASE_VERSION: ${{ inputs.version }}
+        run: python3 scripts/verify_release.py --directory candidate --version "$RELEASE_VERSION" --report evidence.json
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: verified-${{ matrix.platform }}
+          path: evidence.json
+          if-no-files-found: error
