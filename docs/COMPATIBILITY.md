@@ -9,7 +9,7 @@
 | macOS Apple Silicon | `znas-macos-aarch64.tar.gz` | 构建、最低系统版本、签名和运行待验证 |
 | Windows / Intel Mac | 无 | 暂不支持，不承诺 WSL 或 Rosetta 兼容性 |
 
-NAS 固件兼容性必须通过真实设备记录。当前不声明“支持全部 ZettOS 版本”，也不把内部服务源码分支号当成用户固件版本。首发前应在 `ACCEPTANCE.md` 写明已验证固件版本与设备型号，不公开设备序列号、IP 或个人用户名。
+NAS 固件兼容性必须通过真实设备记录。Zettlab D6 Ultra / ZettOS `1.14.0-beta` 已通过登录和设备、固件、存储读取；该测试环境没有存储池，文件、搜索、问答未通过，且刷新令牌仅有效 1 秒，长期保持登录尚未验证。详见 [ACCEPTANCE.md](ACCEPTANCE.md)。当前不声明“支持全部 ZettOS 版本”，也不把内部服务源码分支号当成用户固件版本；不公开设备序列号、IP 或个人用户名。
 
 | 能力 | 前置条件 | 首发验证要求 |
 |---|---|---|
