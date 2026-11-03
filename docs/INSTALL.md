@@ -1,6 +1,8 @@
 # 安装与版本管理
 
-支持 Linux x86_64、Linux ARM64 和 macOS Apple Silicon。Windows 原生和 Intel Mac 暂不支持。Python 3.9+、curl、OpenSSL 必须在 PATH 中；不需要安装 Rust。macOS 若没有 Python，请先从 python.org 安装 Python 3。
+计划交付 Linux x86_64、Linux ARM64 和 macOS Apple Silicon。当前 Linux 两种架构的候选程序已在 Ubuntu 24.04 原生验证，macOS 程序尚待构建和验收，公开 Release 尚未发布。请以[兼容性记录](COMPATIBILITY.md)和[验收记录](ACCEPTANCE.md)为准；以下安装命令需在对应版本正式开放下载后使用。
+
+Python 3.9+、curl、OpenSSL 必须在 PATH 中；不需要安装 Rust。Windows 原生和 Intel Mac 暂不支持。macOS 若没有 Python，请先从 python.org 安装 Python 3。
 
 从 README 下载 `install.sh`，或下载本仓库后直接使用 `python3 scripts/installer.py`。首次 Beta 必须指定版本；`latest` 仅解析正式版本，不会自动安装预发布版。
 
@@ -54,7 +56,7 @@ bash install.sh uninstall --yes --purge-credentials
 
 ## 下载验证
 
-每个 Release 包含三个完整平台包、`SHA256SUMS` 和 `SHA256SUMS.sig`。安装器内置发布公钥；必须通过签名验证才能使用校验和，验证失败不会安装。公开公钥在 `release-signing-public.pem`。下载 Bootstrap 安装脚本依赖 GitHub HTTPS；高要求环境可以固定已审阅的仓库提交再运行安装器。
+完整发行版将包含三个平台包、`SHA256SUMS` 和 `SHA256SUMS.sig`；当前草稿仅有两个 Linux 候选包。安装器内置发布公钥；必须通过签名验证才能使用校验和，验证失败不会安装。公开公钥在 `release-signing-public.pem`。下载 Bootstrap 安装脚本依赖 GitHub HTTPS；高要求环境可以固定已审阅的仓库提交再运行安装器。
 
 手工验证示例：
 
