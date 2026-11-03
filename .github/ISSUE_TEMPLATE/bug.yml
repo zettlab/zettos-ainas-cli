@@ -1,0 +1,22 @@
+name: 问题反馈
+description: 安装或使用问题（不要提交密码、token 或私人文件）
+body:
+  - type: markdown
+    attributes:
+      value: 安全漏洞请使用私密安全报告。请先删除日志中的账号、设备地址、文件路径和访问凭据。
+  - type: input
+    id: versions
+    attributes:
+      label: CLI / 电脑系统与架构 / NAS 固件版本
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: 复现步骤、预期结果和实际结果
+    validations:
+      required: true
+  - type: textarea
+    id: error
+    attributes:
+      label: 已脱敏的错误摘要

@@ -1,0 +1,29 @@
+Zettlab AINAS CLI Binary License
+
+Copyright (c) 2026 Zettlab and contributors. All rights reserved.
+
+This license applies to the compiled znas executable distributed in official
+Zettlab AINAS CLI release archives. Source code for that executable is not
+provided under this license.
+
+You may download, install, copy and use unmodified official binaries, without
+charge, for personal or internal business operation of Zettlab NAS devices
+that you own or are authorized to administer. You may redistribute an unmodified
+official release archive with this license and its third-party notices intact.
+No trademark rights or right to imply endorsement are granted.
+
+Except where applicable law requires otherwise, no permission is granted to
+modify or create derivative works of the executable or to redistribute modified
+versions. No source-code license is granted. Rights not expressly granted are
+reserved. This license does not limit rights granted separately by licenses of
+third-party components; those components remain subject to their own licenses.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE AUTHORS
+AND COPYRIGHT HOLDERS SHALL NOT BE LIABLE FOR CLAIMS, DAMAGES OR OTHER LIABILITY
+ARISING FROM THE SOFTWARE OR ITS USE.
+
+The public installation scripts, documentation and Agent skills in this
+repository are separately licensed under TOOLING-LICENSE. Third-party license
+texts are supplied in THIRD-PARTY-NOTICES.txt in each binary archive.
