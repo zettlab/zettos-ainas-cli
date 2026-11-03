@@ -2,7 +2,7 @@
 
 [English](SUPPORT.md) · **简体中文** · [文档中心](docs/README.md)
 
-项目正在准备首个公开 Beta。目前没有保证响应时间、企业支持合同或长期维护期限。用于重要工作前，请先查看[兼容性](docs/COMPATIBILITY.md)与[已知验收缺口](docs/ACCEPTANCE.md)。
+项目正在准备首个公开 Beta。目前没有保证响应时间、企业支持合同或长期维护期限。用于重要工作前，请先查看[兼容性](docs/COMPATIBILITY.md)与对应已发布版本的说明。
 
 | 你的需求 | 反馈渠道 |
 |---|---|

@@ -2,7 +2,7 @@
 
 **English** · [简体中文](../INSTALL.md) · [Documentation](README.md)
 
-Planned platforms are Linux x86_64, Linux ARM64, and macOS Apple Silicon. Linux candidates passed native checks on Ubuntu 24.04; the Mac binary still needs building and acceptance. **No public Release is available yet.** Use these commands only after their version is published. See [compatibility](COMPATIBILITY.md) and [acceptance](ACCEPTANCE.md).
+Downloads are planned for Linux x86_64, Linux ARM64, and macOS Apple Silicon. **No version is available for download yet.** Use these commands only after the corresponding version is published. See [compatibility](COMPATIBILITY.md) for platform and system requirements.
 
 Python 3.9+, curl, and OpenSSL must be on PATH. Rust is not required. Native Windows and Intel Mac are unsupported. On macOS, install Python 3 from python.org if needed.
 
@@ -55,7 +55,7 @@ Cleanup removes local CLI accounts, not NAS users or data. Environment credentia
 
 ## Verify downloads
 
-A complete release will include three archives, `SHA256SUMS`, and `SHA256SUMS.sig`. The draft currently contains two Linux candidates. The installer pins the signing key and verifies the checksum file's signature before trusting its hashes. Verification failures stop installation. The public key is [release-signing-public.pem](../../release-signing-public.pem).
+Each Release lists its available platform archives, `SHA256SUMS`, and `SHA256SUMS.sig`. Use the assets attached to your chosen version. The installer pins the signing key and verifies the checksum file's signature before trusting its hashes. Verification failures stop installation. The public key is [release-signing-public.pem](../../release-signing-public.pem).
 
 Bootstrap download relies on GitHub HTTPS. Environments requiring a reviewed installer can pin a repository commit.
 

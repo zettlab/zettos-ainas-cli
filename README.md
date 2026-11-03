@@ -4,7 +4,7 @@
 
 Connect your terminal or AI agent to your Zettlab NAS. Browse files, search your content, retrieve context for questions, and manage NAS services with the permissions of your NAS account.
 
-**Pre-release: the first public Beta is not available for download yet.** Signed Linux candidates passed native installer checks. NAS workflow acceptance and the Apple Silicon build remain incomplete. The commands below become usable when the corresponding Release is published. See the [acceptance record](docs/en/ACCEPTANCE.md).
+**The first public Beta is not available for download yet.** The commands below become usable when the corresponding version appears in [Releases](https://github.com/zettlab/zettos-ainas-cli/releases). See [compatibility](docs/en/COMPATIBILITY.md) for platform requirements.
 
 [Documentation](docs/en/README.md) · [Compatibility](docs/en/COMPATIBILITY.md) · [Support](SUPPORT.md) · [Releases](https://github.com/zettlab/zettos-ainas-cli/releases)
 
@@ -18,7 +18,7 @@ Connect your terminal or AI agent to your Zettlab NAS. Browse files, search your
 | Check your device | `znas settings device info` |
 | Use an AI agent | Nine supplied skills for Codex, Claude Code, OpenClaw, or a custom directory |
 
-Additional commands cover applications, containers, photos, Coder, Theater, and desktop status. Availability depends on firmware, installed services, and account permissions. Validation levels differ by module; see the [support matrix](docs/en/COMPATIBILITY.md).
+Additional commands cover applications, containers, photos, Coder, Theater, and desktop status. Availability depends on firmware, installed services, and account permissions. See the [requirements for each feature](docs/en/COMPATIBILITY.md).
 
 `znas ask` retrieves NAS context; the agent or model produces the conversational answer. File names, excerpts, and content read by an agent may reach its model provider. Read the [privacy guide](docs/en/PRIVACY.md) before connecting private data.
 
@@ -65,8 +65,7 @@ The Rust implementation remains private. This repository contains public distrib
 
 - [Troubleshooting](docs/en/TROUBLESHOOTING.md) and [support channels](SUPPORT.md)
 - [Privacy](docs/en/PRIVACY.md) and [private security reports](docs/en/SECURITY.md)
-- [Changelog](docs/en/CHANGELOG.md), [release readiness](docs/en/READINESS.md), and [language coverage](docs/en/LOCALIZATION.md)
-- [Contributing to public tooling and documentation](CONTRIBUTING.md)
+- [Changelog](docs/en/CHANGELOG.md) and [language coverage](docs/en/LOCALIZATION.md)
 
 Documentation is available in English and Simplified Chinese. Installer and CLI messages are currently English; translated documentation does not change runtime language. This Beta has no response-time SLA or long-term support commitment.
 

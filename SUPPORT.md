@@ -2,7 +2,7 @@
 
 **English** · [简体中文](SUPPORT.zh-CN.md) · [Documentation](docs/en/README.md)
 
-The project is preparing its first public Beta. There is no guaranteed response time, enterprise support contract, or long-term maintenance period. Check [compatibility](docs/en/COMPATIBILITY.md) and [known acceptance gaps](docs/en/ACCEPTANCE.md) before deploying it to a workflow you depend on.
+The project is preparing its first public Beta. There is no guaranteed response time, enterprise support contract, or long-term maintenance period. Check [compatibility](docs/en/COMPATIBILITY.md) and the notes for the published version before using it in a workflow you depend on.
 
 | Need | Channel |
 |---|---|

@@ -15,8 +15,6 @@
 | No AI results | Verify file browsing and keyword search, then check NAS models and indexes. |
 | Agent cannot find skills | Check the chosen agent/directory, then refresh or restart the agent. |
 
-The tested ZettOS `1.14.0-beta` issued refresh tokens valid for one second; later refresh failed with `20006`. It had no storage pools: browsing/search failed with `65000`, `60023`, or `65003`, and question retrieval returned an empty response. See [acceptance](ACCEPTANCE.md). These findings do not prove general compatibility. Storage setup should follow the official workflow, not an unreviewed formatting command.
-
 ## Collect a minimal report
 
 From a downloaded checkout:

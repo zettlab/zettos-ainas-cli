@@ -36,8 +36,8 @@ AI search and question-context retrieval require corresponding NAS services, mod
 
 ## Remote access and permissions
 
-Configure remote access through the official product workflow, then verify a reachable HTTPS gateway URL. An assistance code or device identifier cannot replace the URL. Do not expose local HTTP directly to the internet or bypass certificate checks. Remote connection modes still need individual acceptance; see [compatibility](COMPATIBILITY.md).
+Configure remote access through the official product workflow, then verify a reachable HTTPS gateway URL. An assistance code or device identifier cannot replace the URL. Do not expose local HTTP directly to the internet or bypass certificate checks. See [compatibility](COMPATIBILITY.md) for remote-connection requirements.
 
 Use an ordinary NAS account for browsing and search, and administrative permissions only when needed. Confirm the target and impact before deletion, overwrite, sharing, application installation, or settings changes.
 
-On the tested firmware, refresh tokens expired after one second. Immediate refresh succeeded, but later refresh was rejected. See [acceptance](ACCEPTANCE.md); long-lived login is not verified. If refresh is rejected, sign in again through the hidden prompt.
+If `auth refresh` is rejected, sign in again through the hidden password prompt. Do not post saved login information publicly.

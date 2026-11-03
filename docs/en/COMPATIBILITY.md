@@ -1,26 +1,28 @@
-# Compatibility and support scope
+# Platform and feature requirements
 
 **English** · [简体中文](../COMPATIBILITY.md) · [Documentation](README.md)
 
-This is the acceptance scope for the first public Beta. **Compilation, available routes, and documentation are not evidence of successful real-device validation.** Published assets and accepted platforms are defined by release evidence.
+**No version is available for download yet.** Available platform assets, minimum OS versions, and supported NAS firmware are defined by the corresponding published Release notes.
 
-| Client platform | Planned asset | Current evidence |
-|---|---|---|
-| Linux x86_64 | `znas-linux-x86_64.tar.gz` | Signed candidate passed on native Ubuntu 24.04; glibc symbol requirement 2.34, older systems untested |
-| Linux ARM64 | `znas-linux-aarch64.tar.gz` | Signed candidate passed on native Ubuntu 24.04 ARM64; older systems untested |
-| macOS Apple Silicon | `znas-macos-aarch64.tar.gz` | Build, minimum OS, signing, and execution still pending |
-| Windows / Intel Mac | None | Unsupported; no WSL or Rosetta compatibility promise |
+| Computer platform | Download plan |
+|---|---|
+| Linux x86_64 | `znas-linux-x86_64.tar.gz` planned |
+| Linux ARM64 | `znas-linux-aarch64.tar.gz` planned |
+| macOS Apple Silicon | `znas-macos-aarch64.tar.gz` planned |
+| Windows / Intel Mac | Not offered; no WSL or Rosetta compatibility promise |
 
-A Zettlab D6 Ultra reporting ZettOS `1.14.0-beta` passed login and device, firmware, and storage reads. That environment had no storage pools: file browsing, search, and question retrieval did not pass. Refresh tokens lasted one second, so long-lived login remains unverified. See [acceptance](ACCEPTANCE.md). We do not claim all ZettOS versions work or substitute internal service branch names for firmware versions. Device serials, addresses, and account names are excluded from public evidence.
+Installation requires Python 3.9+, curl, and OpenSSL. Install the CLI on the computer running your terminal or agent. It connects through the NAS gateway and does not require NAS SSH access.
 
-| Capability | Prerequisites | Required acceptance |
-|---|---|---|
-| Login and browsing | Reachable gateway, NAS account, usable storage | Login, refresh, expiration, ordinary-user permissions |
-| Search and question retrieval | File access, AI services/models/indexes | Search, unavailable-AI behavior, question context |
-| Settings and desktop status | Corresponding services; admin for some tasks | Read scenarios; writes tested separately by risk |
-| Applications and containers | Services and suitable storage | Experimental; install/start/cleanup scenarios pending |
-| Photos | Photos service and index | Experimental; user scenarios pending |
-| Coder and Theater | Installed applications and gateway routes | Experimental; user scenarios pending |
-| Remote access | Official setup and reachable HTTPS gateway | Verify each connection mode individually |
+| Feature | Requirements |
+|---|---|
+| Login and file browsing | Reachable gateway, NAS account, configured storage, file permissions |
+| Search and content questions | File permissions; AI features also require NAS services, models, and content indexes |
+| Device settings and desktop status | Corresponding NAS services; administrator permissions for some operations |
+| Applications and containers | Corresponding services and available storage |
+| Photos | Photos application and index |
+| Coder and Theater | Installed applications accessible through the gateway |
+| Remote connections | Official remote-access setup and a reachable HTTPS gateway URL |
 
-For `404`, unavailable services, or permission errors, check firmware and application versions. The CLI does not substitute native host commands for NAS APIs. If the binary needs a newer glibc than the host provides, installation preflight fails and preserves the old version. Do not replace system glibc to install this CLI.
+Features may differ between firmware and application versions. A successful `auth probe` confirms the authentication endpoint, not every feature. For `404`, unavailable services, or permission errors, check firmware, application versions, and account permissions. See [troubleshooting](TROUBLESHOOTING.md).
+
+The CLI does not substitute native host commands for NAS control APIs. If the host does not meet a Linux binary's glibc requirement, installation preflight fails and preserves the old version. Do not replace system glibc to install the CLI.

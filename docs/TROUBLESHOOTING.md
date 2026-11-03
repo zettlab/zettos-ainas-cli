@@ -26,5 +26,3 @@ python3 scripts/diagnose.py --binary znas
 该脚本只输出操作系统/架构、Python/OpenSSL 与 CLI 版本信息；不读取 NAS 内容、不联网、不读取凭据、不自动上传。NAS 连通性由你单独运行 `znas --base-url '<地址>' auth probe` 检查，公开反馈前删除地址。
 
 程序错误请发普通 Issue；涉及越权、凭据暴露或数据泄露的问题请走 [SECURITY.md](../SECURITY.md)，不要上传公开日志。
-
-当前测试的 ZettOS `1.14.0-beta` 刷新令牌仅有效 1 秒，稍后刷新返回 `20006`；需重新登录。该测试环境没有存储池，浏览/搜索返回 `65000`、`60023` 或 `65003`，问答返回空响应。详见[验收记录](ACCEPTANCE.md)。存储初始化应走官方产品流程，不要用未经审查的格式化命令处理。

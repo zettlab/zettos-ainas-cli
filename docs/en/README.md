@@ -2,17 +2,16 @@
 
 **English** · [简体中文](../README.md) · [Project home](../../README.md)
 
-The first public Beta is in preparation. Check compatibility and release status before installing. Documentation coverage is not proof that every platform or NAS workflow passed acceptance.
+Before installing, check that your chosen version is available in [Releases](https://github.com/zettlab/zettos-ainas-cli/releases) and meets your platform requirements.
 
 | Task | Guide |
 |---|---|
-| Check your setup | [Compatibility](COMPATIBILITY.md), [acceptance record](ACCEPTANCE.md) |
+| Check your computer and NAS requirements | [Compatibility](COMPATIBILITY.md) |
 | Install, update, roll back, or uninstall | [Installation](INSTALL.md) |
 | Connect your first NAS | [Quick start](QUICKSTART.md) |
 | Diagnose a problem | [Troubleshooting](TROUBLESHOOTING.md), [support](../../SUPPORT.md) |
 | Understand permissions and data sharing | [Privacy](PRIVACY.md), [security](SECURITY.md) |
 | Review version changes | [Changelog](CHANGELOG.md) |
-| Improve the public project | [Contributing](../../CONTRIBUTING.md), [localization](LOCALIZATION.md) |
-| Understand release gates | [Readiness](READINESS.md), [maintainer guide](MAINTAINING.md) |
+| Switch language or report translation issues | [Language support](LOCALIZATION.md) |
 
-Command names, flags, JSON keys, paths, and error codes stay the same across languages. Replace example placeholders with your own values and keep credentials out of reports.
+Replace command placeholders with your own values and keep credentials out of public reports.

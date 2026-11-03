@@ -10,8 +10,8 @@ Include affected CLI/firmware versions, reproduction steps, required privileges,
 
 Beta security fixes will be delivered in new signed Releases. There is no long-term support commitment today. The installer verifies signatures and file digests. The private signing key is excluded from this repository and its archives.
 
-## Dependency review
+## Dependency security information
 
-The first candidate updated TLS, certificate, and other dependencies with known issues. `rsa 0.9.10` remains affected by [RUSTSEC-2023-0071](https://rustsec.org/advisories/RUSTSEC-2023-0071.html), a timing-leakage advisory for RSA private-key operations with no patched version identified in the recorded audit.
+`rsa 0.9.10` remains affected by [RUSTSEC-2023-0071](https://rustsec.org/advisories/RUSTSEC-2023-0071.html), a timing-leakage advisory for RSA private-key operations with no patched version identified in the linked advisory.
 
-The CLI only uses the NAS RSA **public key** to encrypt the login password. It holds no RSA private key and performs no RSA decryption or signing. A bounded exception applies to this usage and must be reviewed on usage/version changes or by 2027-05-01. This is not a zero-vulnerability claim or a security assessment of the NAS server's private-key implementation.
+The CLI only uses the NAS RSA **public key** to encrypt the login password. It holds no RSA private key and performs no RSA decryption or signing. This is not a zero-vulnerability claim or a security assessment of the NAS server's private-key implementation.
