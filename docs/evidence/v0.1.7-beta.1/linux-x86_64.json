@@ -1,0 +1,21 @@
+{
+  "version": "v0.1.7-beta.1",
+  "platform": "linux-x86_64",
+  "checked_at": "2026-11-03T00:34:19.639832+00:00",
+  "asset_sha256": "a07caa85c5520d3ede31ce49c0a455530932db594f33e436021b1f5e4a33e2d5",
+  "status": "passed",
+  "checks": [
+    "release signature",
+    "archive checksum",
+    "payload manifest",
+    "binary version",
+    "six domain schemas",
+    "destructive command rejection",
+    "install",
+    "repeat install",
+    "uninstall"
+  ],
+  "scope": "Native binary and installer only; does not establish NAS or older-OS compatibility.",
+  "ci_run": "https://github.com/zettlab/zettos-ainas-cli/actions/runs/41553772658",
+  "runner_os": "Ubuntu 24.04"
+}
