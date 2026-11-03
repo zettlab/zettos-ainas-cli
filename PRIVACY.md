@@ -1,5 +1,7 @@
 # 隐私与数据流
 
+[English](docs/en/PRIVACY.md) · **简体中文** · [文档中心](docs/README.md)
+
 `znas` 使用你配置的 NAS 网关和账号调用 NAS 服务。账号权限由 NAS 决定。密码在终端隐藏输入；登录流程使用 NAS 提供的公钥加密密码。公网仍应使用 HTTPS，密码字段加密不能替代传输层保护。
 
 CLI 将访问凭据保存在当前用户的本地配置目录中：Linux 默认 `~/.config/znas`，macOS 默认 `~/Library/Application Support/znas`；`XDG_CONFIG_HOME` 或 `ZETTOS_NAS_CLI_CONFIG_DIR` 可以改变位置。凭据密文和本地密钥受到文件权限保护；这不能防止已获得你系统账号权限的软件读取凭据。

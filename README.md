@@ -1,56 +1,73 @@
 # Zettlab AINAS CLI
 
-用命令行或 AI Agent 操作你的 Zettlab NAS：浏览文件、搜索内容、查询设备状态，以及管理应用、容器和照片。
+**English** · [简体中文](README.zh-CN.md)
 
-**当前状态：首个公开 Beta 正在准备，尚未发布可下载版本。** 安装器与文档已提供；下面的安装命令在对应 Release 发布后可用。实际验证状态见 [验收记录](docs/ACCEPTANCE.md)。
+Connect your terminal or AI agent to your Zettlab NAS. Browse files, search your content, retrieve context for questions, and manage NAS services with the permissions of your NAS account.
 
-本仓库提供安装工具、用户文档和 9 个 Agent skills。`znas` 的 Rust 实现保持私有，编译后的程序通过 [GitHub Releases](https://github.com/zettlab/zettos-ainas-cli/releases) 分发。使用时不需要 Rust、源码或 GitHub 账号。
+**Pre-release: the first public Beta is not available for download yet.** Signed Linux candidates passed native installer checks. NAS workflow acceptance and the Apple Silicon build remain incomplete. The commands below become usable when the corresponding Release is published. See the [acceptance record](docs/en/ACCEPTANCE.md).
 
-## 开始使用
+[Documentation](docs/en/README.md) · [Compatibility](docs/en/COMPATIBILITY.md) · [Support](SUPPORT.md) · [Releases](https://github.com/zettlab/zettos-ainas-cli/releases)
 
-请先在 Zettlab 官方界面完成 NAS 初始化，确认电脑能打开 NAS 登录页面。安装在你运行 Agent 的电脑上；NAS 不需要开启 SSH。
+## What you can do
 
-准备 Python 3.9+、curl 和 OpenSSL，然后下载并查看安装脚本：
+| Goal | Entry point |
+|---|---|
+| Browse your NAS files | `znas file root spaces` |
+| Find files and photos | `znas search --query 'cats'` |
+| Retrieve context for a question | `znas ask --question 'Summarize the product launch plan'` |
+| Check your device | `znas settings device info` |
+| Use an AI agent | Nine supplied skills for Codex, Claude Code, OpenClaw, or a custom directory |
+
+Additional commands cover applications, containers, photos, Coder, Theater, and desktop status. Availability depends on firmware, installed services, and account permissions. Validation levels differ by module; see the [support matrix](docs/en/COMPATIBILITY.md).
+
+`znas ask` retrieves NAS context; the agent or model produces the conversational answer. File names, excerpts, and content read by an agent may reach its model provider. Read the [privacy guide](docs/en/PRIVACY.md) before connecting private data.
+
+## Get started
+
+Complete NAS initialization, account setup, and storage setup in the official Zettlab interface first. Install the CLI on the computer running your agent. NAS SSH access is not required. You need Python 3.9+, curl, and OpenSSL; you do not need Rust or a GitHub account.
+
+After the Beta is published, download and review the installer:
 
 ```bash
 curl --proto '=https' --proto-redir '=https' -fsSL \
   https://raw.githubusercontent.com/zettlab/zettos-ainas-cli/main/install.sh -o install.sh
 bash install.sh install --version v0.1.7-beta.1 --agent codex
-```
-
-可将 `codex` 换为 `claudecode`、`openclaw`；只使用命令行则用 `none`。默认不使用 sudo，程序入口放在 `~/.local/bin/znas`。
-
-```bash
 export PATH="$HOME/.local/bin:$PATH"
 znas --version
-znas --base-url 'http://<NAS地址>:<端口>' auth probe
-znas --base-url 'http://<NAS地址>:<端口>' auth login --username '<NAS用户名>' --keep-logged-in
-# 在终端隐藏输入密码，不要把密码发给 Agent。
-znas file root spaces
-znas file root list --json '{"path":"/personal","size":20,"index":0}'
-znas search --query '猫'
 ```
 
-地址填写你实际可以访问的 NAS 网关地址。远程连接、证书与密码说明见 [快速开始](docs/QUICKSTART.md)。
+Replace `codex` with `claudecode` or `openclaw`, or use `none` for CLI-only installation. Installation uses your user account without sudo. See [installation and version management](docs/en/INSTALL.md) for custom directories, updates, rollback, and uninstall.
 
-完成登录后，重新启动或刷新 Agent 的 skills，然后试着说：
+Connect using the gateway address you use to access the NAS:
 
-> 列出我 NAS 个人空间里的文件。
+```bash
+znas --base-url 'http://<NAS-address>:<port>' auth probe
+znas --base-url 'http://<NAS-address>:<port>' auth login --username '<NAS-username>' --keep-logged-in
+# Enter your password at the hidden terminal prompt.
+znas file root spaces
+znas file root list --json '{"path":"/personal","size":20,"index":0}'
+znas search --query 'cats'
+```
+
+Do not put passwords in chat or command arguments. Use a reachable HTTPS gateway for remote connections. The [first connection guide](docs/en/QUICKSTART.md) covers account aliases, file browsing, and AI prerequisites.
+
+Restart or refresh your agent's skills, then try:
+
+> List the files in my NAS personal space.
 >
-> 帮我找 NAS 里拍到猫的照片。
+> Find photos of cats on my NAS.
 >
-> 总结 NAS 里关于产品发布计划的内容。
+> Summarize the product launch documents on my NAS.
 
-## 使用与支持
+## Project and support
 
-- [安装、升级、回退、卸载](docs/INSTALL.md)
-- [系统与 NAS 兼容性](docs/COMPATIBILITY.md)
-- [常见问题与诊断](docs/TROUBLESHOOTING.md)
-- [隐私与 AI 数据流](PRIVACY.md)
-- [安全反馈](SECURITY.md)
-- [更新记录](CHANGELOG.md)
-- [普通问题反馈](https://github.com/zettlab/zettos-ainas-cli/issues/new/choose)
+The Rust implementation remains private. This repository contains public distribution tooling, documentation, and nine agent skills. Binaries will be distributed through signed GitHub Release archives.
 
-使用范围包括 `file`、`settings`、`app-store`、`docker`、`photos`、`coder`、`theater` 和桌面状态；各模块的验证程度不同，见兼容性表。搜索使用 `znas search`，内容问答使用 `znas ask`。权限来自登录的 NAS 账号。
+- [Troubleshooting](docs/en/TROUBLESHOOTING.md) and [support channels](SUPPORT.md)
+- [Privacy](docs/en/PRIVACY.md) and [private security reports](docs/en/SECURITY.md)
+- [Changelog](docs/en/CHANGELOG.md), [release readiness](docs/en/READINESS.md), and [language coverage](docs/en/LOCALIZATION.md)
+- [Contributing to public tooling and documentation](CONTRIBUTING.md)
 
-程序许可见 [LICENSE](LICENSE)。公开安装工具、文档和 skills 使用 [TOOLING-LICENSE](TOOLING-LICENSE)。第三方组件声明随每个平台安装包交付。
+Documentation is available in English and Simplified Chinese. Installer and CLI messages are currently English; translated documentation does not change runtime language. This Beta has no response-time SLA or long-term support commitment.
+
+The binary is governed by [LICENSE](LICENSE). Public scripts, documentation, and skills use [TOOLING-LICENSE](TOOLING-LICENSE). Third-party components retain their own licenses and notices, supplied in each platform archive.

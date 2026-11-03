@@ -1,5 +1,7 @@
 # 发行维护
 
+[English](en/MAINTAINING.md) · **简体中文** · [文档中心](README.md)
+
 本仓库只维护公开交付内容。私有 CLI 代码在独立权限边界内构建；不得把源码、内部文档、账号、测试设备配置或私有 Git 历史复制进来。
 
 ## 发布步骤
@@ -10,7 +12,7 @@
 4. 生成依赖清单、完整许可证文本和需要随附的第三方源码包。审核漏洞清单；不可将许可未知或有未处理严重漏洞的附件当作合格发行包。
 5. 每个平台执行 `scripts/package_release.py package`，输入已构建的程序、相同版本号和依赖声明。包只包含程序、skills、许可证、第三方材料和 manifest。
 6. 全部三平台包就绪后执行 `scripts/package_release.py sign`。签名私钥通过 `--private-key` 指向仓库外受保护位置；不要把密钥文件或其内容放进 Git、日志或附件。
-7. 完成 `ACCEPTANCE.md` 证据表，更新兼容性文档、README 和更新日志；测试不能访问 CLI 源码。确认程序包和 Git 标签的 skills 完全一致。
+7. 完成 `ACCEPTANCE.md` 证据表，同步更新中英文兼容性文档、README 和更新日志；测试不能访问 CLI 源码。确认程序包和 Git 标签的 skills 完全一致。
 8. 运行公开工具测试与 `scripts/check_public_tree.py`，审查提交。使用 `type(scope): summary`，Agent 生成的提交保留对应 Co-Authored-By trailer。
 9. 创建与该提交绑定的 GitHub 预发布版，先上传为 draft：三个平台包、SHA256SUMS、SHA256SUMS.sig。下载 draft 附件复验后发布。
 10. 使用无登录状态的客户端检查 README、安装脚本和 Release 附件，再在干净环境完成安装、登录、文件浏览、升级/回退和卸载。记录结果；如发布后发现阻断性问题，撤回推荐并说明受影响版本。

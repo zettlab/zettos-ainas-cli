@@ -1,4 +1,4 @@
-name: 问题反馈
+name: 问题反馈（简体中文）
 description: 安装或使用问题（不要提交密码、token 或私人文件）
 body:
   - type: markdown

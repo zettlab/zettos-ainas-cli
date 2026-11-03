@@ -1,5 +1,7 @@
 # 安全反馈
 
+[English](docs/en/SECURITY.md) · **简体中文** · [文档中心](docs/README.md)
+
 请勿在公开 Issue 中提交密码、token、NAS 设备标识、私人文件内容或可利用的漏洞细节。
 
 使用 GitHub 的 [私密安全报告](https://github.com/zettlab/zettos-ainas-cli/security/advisories/new) 联系维护者。若入口不可用，请先通过 Zettlab 官网的官方支持入口请求安全联系方式，不要改用公开 Issue 上传漏洞详情。

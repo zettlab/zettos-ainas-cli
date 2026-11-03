@@ -1,0 +1,22 @@
+name: Bug report (English)
+description: Installation or usage problem. Never include passwords, tokens, or private files.
+body:
+  - type: markdown
+    attributes:
+      value: Read the support and troubleshooting guides first. Report security vulnerabilities privately. Remove accounts, device addresses, private paths, and credentials from attachments.
+  - type: input
+    id: versions
+    attributes:
+      label: CLI version / computer OS and architecture / NAS firmware
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce, expected behavior, and actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: error
+    attributes:
+      label: Redacted error summary

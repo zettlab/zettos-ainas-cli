@@ -1,5 +1,8 @@
 blank_issues_enabled: false
 contact_links:
-  - name: 私密安全报告
+  - name: Private security report / 私密安全报告
     url: https://github.com/zettlab/zettos-ainas-cli/security/advisories/new
-    about: 安全漏洞或凭据泄露，请勿公开提交。
+    about: Vulnerabilities or credential exposure — do not report publicly / 漏洞或凭据泄露请勿公开提交
+  - name: Support guide / 支持指南
+    url: https://github.com/zettlab/zettos-ainas-cli/blob/main/SUPPORT.md
+    about: Support scope and reporting channels; Chinese link at the top / 支持范围与反馈渠道，页首可切换中文

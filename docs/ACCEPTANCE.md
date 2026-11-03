@@ -1,5 +1,7 @@
 # 发布验收记录
 
+[English](en/ACCEPTANCE.md) · **简体中文** · [文档中心](README.md)
+
 目标版本：`v0.1.7-beta.1`。当前状态：Linux 两平台签名附件已上传草稿，**未达到公开 Release 发布条件**。
 
 | 项目 | 证据/状态 |
@@ -18,7 +20,7 @@
 | 模块写操作与清理 | 待在隔离测试数据上执行，禁止共享机器破坏性操作 |
 | 高风险操作 CLI 层保护 | 已加入显式确认开关及动态执行入口保护；单元测试和真实二进制拒绝路径通过 |
 | 第三方依赖许可证和漏洞审查 | 187 个目标依赖的许可文本与清单、MPL 源码及 Rust 标准库许可材料已随包交付；无未处理公告/警告，RSA 公钥使用例外见 SECURITY.md |
-| 用户文档、隐私、授权、安全反馈 | 文档已建立，待按最终行为核对 |
+| 用户文档、隐私、授权、安全反馈 | 中英文文档路径已补齐，待最终行为复核；安装器/CLI 运行时本地化未完成 |
 | 三平台 CI 与发布门禁 | 公开工具 CI #41553493703：Ubuntu x86_64、Ubuntu ARM64、macOS 14 的 13 项测试通过；真实 Linux 程序 CI #41553772658 两平台通过，Mac 程序待验证 |
 
 可复核证据：[公开工具 CI](https://github.com/zettlab/zettos-ainas-cli/actions/runs/41553493703)、[原生 Linux 候选包 CI](https://github.com/zettlab/zettos-ainas-cli/actions/runs/41553772658)、[x86_64 摘要记录](evidence/v0.1.7-beta.1/linux-x86_64.json)、[ARM64 摘要记录](evidence/v0.1.7-beta.1/linux-aarch64.json)。下载 CI 证据中的 SHA-256 已与本地候选附件比对一致；两包中的九个 skills 与公开 Git 内容一致。

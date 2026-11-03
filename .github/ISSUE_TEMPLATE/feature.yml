@@ -1,0 +1,20 @@
+name: Feature or language request / 功能与语言建议
+description: Describe a user task or language gap / 描述用户任务或语言缺口
+body:
+  - type: textarea
+    id: task
+    attributes:
+      label: User task and current limitation / 用户任务与现有限制
+      description: Do not include private NAS content or credentials / 不要提供 NAS 私人内容或凭据
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Expected result and a concrete example / 期望结果与具体示例
+    validations:
+      required: true
+  - type: input
+    id: language
+    attributes:
+      label: Language or platform, if relevant / 相关语言或平台（可选）

@@ -1,5 +1,7 @@
 # 安装与版本管理
 
+[English](en/INSTALL.md) · **简体中文** · [文档中心](README.md)
+
 计划交付 Linux x86_64、Linux ARM64 和 macOS Apple Silicon。当前 Linux 两种架构的候选程序已在 Ubuntu 24.04 原生验证，macOS 程序尚待构建和验收，公开 Release 尚未发布。请以[兼容性记录](COMPATIBILITY.md)和[验收记录](ACCEPTANCE.md)为准；以下安装命令需在对应版本正式开放下载后使用。
 
 Python 3.9+、curl、OpenSSL 必须在 PATH 中；不需要安装 Rust。Windows 原生和 Intel Mac 暂不支持。macOS 若没有 Python，请先从 python.org 安装 Python 3。
