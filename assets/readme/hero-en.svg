@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="288" viewBox="0 0 1200 288" role="img" aria-labelledby="title desc">
+<title id="title">Zettlab AINAS CLI</title><desc id="desc">Your NAS. One command away.</desc>
+<rect width="1200" height="288" rx="20" fill="#132b32"/>
+<g transform="translate(56 57) scale(.9)"><rect x="2" y="2" width="76" height="76" rx="19" fill="#8ee8c1"/><path d="m21 23 15 14-15 14m23 0h15" fill="none" stroke="#102a27" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 63h36" stroke="#102a27" stroke-opacity=".42" stroke-width="4" stroke-linecap="round"/></g>
+<text x="150" y="111" fill="#f3f8f7" font-family="Inter,Arial,sans-serif" font-size="43" font-weight="700" letter-spacing="-1">Zettlab AINAS CLI</text>
+<text x="58" y="185" fill="#c0d6d8" font-family="Inter,Noto Sans CJK SC,Arial,sans-serif" font-size="28">Your NAS. One command away.</text>
+<path d="M58 229h625" stroke="#365059" stroke-width="1"/>
+<g transform="translate(866 48)" fill="none" stroke="#85b7b0" stroke-width="2">
+<rect x="0" y="0" width="222" height="192" rx="14" fill="#1b363d"/>
+<path d="M0 42h222" stroke="#365059"/><circle cx="19" cy="21" r="3" fill="#8ee8c1" stroke="none"/>
+<path d="m23 70 10 9-10 9m23 0h18" stroke="#8ee8c1" stroke-width="3" stroke-linecap="round"/>
+<rect x="23" y="115" width="176" height="22" rx="5" stroke="#52777a"/>
+<rect x="23" y="149" width="176" height="22" rx="5" stroke="#52777a"/>
+<circle cx="181" cy="126" r="3" fill="#8ee8c1" stroke="none"/><circle cx="181" cy="160" r="3" fill="#8ee8c1" stroke="none"/>
+<path d="M36 126h70m-70 34h70" stroke="#85b7b0" stroke-linecap="round"/>
+</g></svg>

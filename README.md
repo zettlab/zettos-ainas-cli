@@ -1,32 +1,54 @@
-# Zettlab AINAS CLI
+<p align="center">
+  <img src="assets/readme/hero-en.svg" width="100%" alt="Zettlab AINAS CLI — Your NAS. One command away.">
+</p>
 
-**English** · [简体中文](README.zh-CN.md)
+<h1 align="center">Your NAS, connected to your workflow.</h1>
 
-Connect your terminal or AI agent to your Zettlab NAS. Browse files, search your content, retrieve context for questions, and manage NAS services with the permissions of your NAS account.
+<p align="center">
+  Browse, search, and manage your Zettlab NAS from the terminal or your AI agent.<br>
+  One CLI. Your NAS account. The tools you already use.
+</p>
 
-**The first public Beta is not available for download yet.** The commands below become usable when the corresponding version appears in [Releases](https://github.com/zettlab/zettos-ainas-cli/releases). See [compatibility](docs/en/COMPATIBILITY.md) for platform requirements.
+<p align="center">
+  <a href="https://github.com/zettlab/zettos-ainas-cli/releases"><img src="assets/readme/badge-release.svg" alt="Release: coming soon"></a>
+  <a href="#use-your-ai-agent"><img src="assets/readme/badge-skills.svg" alt="Agent skills: 9"></a>
+  <a href="docs/en/LOCALIZATION.md"><img src="assets/readme/badge-docs.svg" alt="Documentation: English and Simplified Chinese"></a>
+  <a href="LICENSE"><img src="assets/readme/badge-license.svg" alt="Binary license: proprietary"></a>
+</p>
 
-[Documentation](docs/en/README.md) · [Compatibility](docs/en/COMPATIBILITY.md) · [Support](SUPPORT.md) · [Releases](https://github.com/zettlab/zettos-ainas-cli/releases)
+<p align="center">
+  <strong>English</strong> · <a href="README.zh-CN.md">简体中文</a>
+</p>
+<p align="center">
+  <a href="docs/en/README.md"><strong>Documentation</strong></a> ·
+  <a href="docs/en/INSTALL.md">Installation</a> ·
+  <a href="https://github.com/zettlab/zettos-ainas-cli/releases">Releases</a> ·
+  <a href="SUPPORT.md">Get help</a>
+</p>
 
-## What you can do
+> [!NOTE]
+> **The first public Beta is coming soon.** No binary release is available for download yet. Installation commands below apply once the corresponding version is published. See [platform requirements](docs/en/COMPATIBILITY.md).
 
-| Goal | Entry point |
-|---|---|
-| Browse your NAS files | `znas file root spaces` |
-| Find files and photos | `znas search --query 'cats'` |
-| Retrieve context for a question | `znas ask --question 'Summarize the product launch plan'` |
-| Check your device | `znas settings device info` |
-| Use an AI agent | Nine supplied skills for Codex, Claude Code, OpenClaw, or a custom directory |
+## <img src="assets/readme/explore.svg" width="24" height="24" alt=""> Work with what's on your NAS
 
-Additional commands cover applications, containers, photos, Coder, Theater, and desktop status. Availability depends on firmware, installed services, and account permissions. See the [requirements for each feature](docs/en/COMPATIBILITY.md).
+Find a document, locate a photo, check your device, or manage an application without switching between separate tools.
 
-`znas ask` retrieves NAS context; the agent or model produces the conversational answer. File names, excerpts, and content read by an agent may reach its model provider. Read the [privacy guide](docs/en/PRIVACY.md) before connecting private data.
+| Capability | What you can do |
+| :--- | :--- |
+| **Files & search** | Browse personal and shared spaces. Find content with keyword and AI-assisted search. |
+| **Questions about your content** | Retrieve relevant NAS context with `znas ask` for your agent to turn into an answer. |
+| **Device & services** | Read device status and work with settings, applications, and containers. |
+| **Photos & workspaces** | Access photo workflows, Coder, Theater, and desktop status through their NAS services. |
 
-## Get started
+Available features depend on your NAS firmware, installed services, storage, and account permissions. [Check feature requirements →](docs/en/COMPATIBILITY.md)
 
-Complete NAS initialization, account setup, and storage setup in the official Zettlab interface first. Install the CLI on the computer running your agent. NAS SSH access is not required. You need Python 3.9+, curl, and OpenSSL; you do not need Rust or a GitHub account.
+## <img src="assets/readme/connect.svg" width="24" height="24" alt=""> Start with three steps
 
-After the Beta is published, download and review the installer:
+Install on the computer running your terminal or agent. You need **Python 3.9+, curl, and OpenSSL**, plus an initialized Zettlab NAS with an account and configured storage. NAS SSH access and a Rust toolchain are not required.
+
+### 1. Install
+
+After the Beta is published, download and review the script, then install:
 
 ```bash
 curl --proto '=https' --proto-redir '=https' -fsSL \
@@ -36,37 +58,102 @@ export PATH="$HOME/.local/bin:$PATH"
 znas --version
 ```
 
-Replace `codex` with `claudecode` or `openclaw`, or use `none` for CLI-only installation. Installation uses your user account without sudo. See [installation and version management](docs/en/INSTALL.md) for custom directories, updates, rollback, and uninstall.
+Choose `codex`, `claudecode`, or `openclaw`; use `none` for CLI-only installation. The installer uses your user account without sudo. [All installation options →](docs/en/INSTALL.md)
 
-Connect using the gateway address you use to access the NAS:
+### 2. Connect your NAS
+
+Use the address you open in your browser to reach the NAS. Replace the placeholders below:
 
 ```bash
 znas --base-url 'http://<NAS-address>:<port>' auth probe
-znas --base-url 'http://<NAS-address>:<port>' auth login --username '<NAS-username>' --keep-logged-in
-# Enter your password at the hidden terminal prompt.
-znas file root spaces
-znas file root list --json '{"path":"/personal","size":20,"index":0}'
-znas search --query 'cats'
+znas --base-url 'http://<NAS-address>:<port>' auth login \
+  --username '<NAS-username>' --keep-logged-in
 ```
 
-Do not put passwords in chat or command arguments. Use a reachable HTTPS gateway for remote connections. The [first connection guide](docs/en/QUICKSTART.md) covers account aliases, file browsing, and AI prerequisites.
+Enter your password at the hidden terminal prompt. Use HTTPS for remote access. [Connection and account guide →](docs/en/QUICKSTART.md)
 
-Restart or refresh your agent's skills, then try:
+### 3. Explore
 
-> List the files in my NAS personal space.
+```bash
+# Discover your file spaces.
+znas file root spaces
+
+# Browse your personal space.
+znas file root list --json '{"path":"/personal","size":20,"index":0}'
+
+# Find content or retrieve context for a question.
+znas search --query 'cats'
+znas ask --question 'Summarize the product launch documents'
+```
+
+`search` finds content. `ask` retrieves context; your agent or model generates the conversational answer. AI features require the corresponding NAS services, models, and indexes.
+
+<a id="use-your-ai-agent"></a>
+
+## <img src="assets/readme/agents.svg" width="24" height="24" alt=""> Use your AI agent
+
+Install the supplied skills, refresh your agent, and describe the task in your own words.
+
+| Agent | Installer option | Default skills directory |
+| :--- | :--- | :--- |
+| **Codex** | `--agent codex` | `~/.codex/skills` |
+| **Claude Code** | `--agent claudecode` | `~/.claude/skills` |
+| **OpenClaw** | `--agent openclaw` | `~/.agents/skills` |
+| **Custom** | `--agent custom --skills-dir <path>` | Your chosen directory |
+
+> “List the files in my NAS personal space.”
 >
-> Find photos of cats on my NAS.
+> “Find photos of cats on my NAS.”
 >
-> Summarize the product launch documents on my NAS.
+> “Summarize the product launch documents on my NAS.”
 
-## Project and support
+<details>
+<summary><strong>Explore the nine included skills</strong></summary>
 
-The Rust implementation remains private. This repository contains public distribution tooling, documentation, and nine agent skills. Binaries will be distributed through signed GitHub Release archives.
+| Skill | Purpose |
+| :--- | :--- |
+| [Shared](skills/znas-shared/SKILL.md) | Connection, authentication, and common usage rules |
+| [Files](skills/znas-file/SKILL.md) | Browsing, file operations, search, and content retrieval |
+| [Settings](skills/znas-settings/SKILL.md) | Device and service settings |
+| [App Store](skills/znas-app-store/SKILL.md) | Application workflows |
+| [Docker](skills/znas-docker/SKILL.md) | Containers, images, and networks |
+| [Photos](skills/znas-photos/SKILL.md) | Photo search, albums, and related workflows |
+| [Coder](skills/znas-coder/SKILL.md) | NAS development workspaces and application artifacts |
+| [Theater](skills/znas-theater/SKILL.md) | Media libraries and playback workflows |
+| [Desktop](skills/znas-desktop-shell/SKILL.md) | Monitor, task, message, and desktop workflows |
 
-- [Troubleshooting](docs/en/TROUBLESHOOTING.md) and [support channels](SUPPORT.md)
-- [Privacy](docs/en/PRIVACY.md) and [private security reports](docs/en/SECURITY.md)
-- [Changelog](docs/en/CHANGELOG.md) and [language coverage](docs/en/LOCALIZATION.md)
+</details>
 
-Documentation is available in English and Simplified Chinese. Installer and CLI messages are currently English; translated documentation does not change runtime language. This Beta has no response-time SLA or long-term support commitment.
+## <img src="assets/readme/shield.svg" width="24" height="24" alt=""> Your account. Your permissions.
 
-The binary is governed by [LICENSE](LICENSE). Public scripts, documentation, and skills use [TOOLING-LICENSE](TOOLING-LICENSE). Third-party components retain their own licenses and notices, supplied in each platform archive.
+- **NAS permissions apply.** Commands operate through your NAS account and gateway.
+- **Credentials stay out of chat.** Use the hidden password prompt; saved credentials are encrypted locally with restricted file permissions.
+- **Downloads are verified.** The installer checks release signatures and file digests before installation.
+- **Know what your agent receives.** File names, excerpts, and content read by an agent may reach its model provider. Review [privacy and data flow](docs/en/PRIVACY.md).
+
+For vulnerabilities or credential exposure, use [private security reporting](docs/en/SECURITY.md).
+
+## <img src="assets/readme/guide.svg" width="24" height="24" alt=""> Documentation & support
+
+| Looking for | Go to |
+| :--- | :--- |
+| Install, update, roll back, or uninstall | [Installation guide](docs/en/INSTALL.md) |
+| Connect a NAS or manage account aliases | [Quick start](docs/en/QUICKSTART.md) |
+| Platform and feature requirements | [Compatibility](docs/en/COMPATIBILITY.md) |
+| Fix a connection or usage problem | [Troubleshooting](docs/en/TROUBLESHOOTING.md) |
+| Report a problem or request a feature | [Support](SUPPORT.md) |
+| Read version changes | [Changelog](docs/en/CHANGELOG.md) |
+
+Documentation is available in **English and Simplified Chinese**. Installer and CLI messages are currently English. [Language support →](docs/en/LOCALIZATION.md)
+
+### Distribution & license
+
+`znas` is distributed as a proprietary binary; its implementation remains private. This repository provides user documentation, installation tools, and agent skills. Binary usage is governed by [LICENSE](LICENSE); public scripts, docs, and skills use [TOOLING-LICENSE](TOOLING-LICENSE). Third-party notices accompany release archives.
+
+---
+
+<p align="center">
+  <a href="docs/en/README.md">Read the docs</a> ·
+  <a href="https://github.com/zettlab/zettos-ainas-cli/releases">View releases</a> ·
+  <a href="SUPPORT.md">Contact support</a>
+</p>
