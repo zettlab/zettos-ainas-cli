@@ -39,4 +39,6 @@ notices 同目录必须有 `dependency-inventory.json`、其要求的 `third-par
 
 三平台附件上传到 draft Release 后，手动运行 `Verify signed release binaries`，填写该版本标签。它会在对应原生 runner 上验证签名、安装、程序版本、schema、高风险命令拒绝和卸载，并保存带附件摘要的 JSON 证据。只有实际执行成功的结果才能填写为原生二进制验收通过。
 
+GitHub 的[草稿可见性规则](https://docs.github.com/en/rest/releases/releases#list-releases)要求 push 权限。工作流仅在独立下载 job 授予 `contents: write`；该 job 不检出代码、不运行附件，随后通过短期 artifact 传递候选包。实际执行二进制的 job 保持只读权限并禁用 checkout 凭据持久化。此工作流没有发布或修改 Release 的步骤。
+
 开发期间可以用 `sign --candidate` 为不完整的平台集合签名并上传 draft，选 `linux_only` 先验证 Linux 两个平台。该结果只代表 Linux 候选包，不能替代三平台发布验收；正式发布前必须补齐全部附件、重新生成完整签名清单，并运行不带 `linux_only` 的验收。
